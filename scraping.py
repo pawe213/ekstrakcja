@@ -32,6 +32,5 @@ for key, value in adresy_wynikow.items():
     race_response = requests.get(value)
     pageRootElementRace = BeautifulSoup(race_response.text, 'html.parser')
     race_score = pageRootElementRace.select('.resultsarchive-col-right')
-    for child in race_score[0].children:
-        b = child.select()
-        print(child.select('.bold'))
+    for child in race_score[0].select('tbody tr'):
+        print(child)
